@@ -138,7 +138,23 @@ Avg_Purchase_Value = Avg_Purchase_Value.reset_index(name='Avg_Purchase_Value')
     'Low Value'
 )
 ```
+```pandas
 
+Customer ID  Avg_Purchase_Value  Purchase Frequency First_Purchase  \
+0    AA-10315         1112.712000                   5     2014-03-31
+1    AA-10375          117.376667                   9     2014-04-21
+2    AA-10480          447.628000                   4     2014-05-04
+3    AA-10645          847.822500                   6     2014-06-22
+4    AB-10015          295.385333                   3     2014-02-18
+
+  Last_Purchase  Lifespan_Years  Customers_Lifetime_Value CLV_Segment
+0    2017-06-29               3                 16690.680  High Value
+1    2017-12-11               3                  3169.170   Low Value
+2    2017-04-15               2                  3581.024   Low Value
+3    2017-11-05               3                 15260.805  High Value
+4    2016-11-10               2                  1772.312   Low Value
+
+```
 ![CLV Distribution](images/%28CLV%291.png)
 ## 5. 📊 CLV Segment Distribution Analysis
 
