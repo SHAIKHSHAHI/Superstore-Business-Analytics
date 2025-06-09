@@ -84,6 +84,60 @@ San Diego       47521.029   6377.1960
 
 - 5.This indicates efficient operations or higher profit margins in these locations, contributing positively to overall profitability.
 - 
+#
+```python
+Count the number of customers in each CLV segment
+segment_counts = CLV_Final_Data['CLV_Segment'].value_counts()
+````
+## 4.💰 Customer Lifetime Value (CLV) Analysis
+
+In this step, we calculate the CLV for each customer by combining their average purchase value, purchase frequency, and lifespan. Based on the average CLV, customers are segmented into High Value and Low Value categories.
+
+✔️ Key Metrics:
+
+- 1.Average Purchase Value = Total Sales / Number of Unique Orders
+
+- 2.Purchase Frequency = Number of Unique Orders per Customer
+
+- 3.Customer Lifespan = Duration between First and Last Purchase (in years)
+
+- 4.CLV = Average Purchase Value × Purchase Frequency × Lifespan
+
+```python
+# Calculate Average Purchase Value
+1.Avg_Purchase_Value = Data.groupby('Customer ID')['Sales'].sum() / Data.groupby('Customer ID')['Order ID'].nunique()
+Avg_Purchase_Value = Avg_Purchase_Value.reset_index(name='Avg_Purchase_Value')
+
+# Calculate Customer Purchase Frequency
+2.Customer_Purchase_Frequency = Data.groupby('Customer ID')['Order ID'].nunique().reset_index(name='Purchase Frequency')
+
+# Calculate Customer Lifespan in Years
+3.lifespan = Data.groupby('Customer ID').agg(
+    First_Purchase=('Order Date', 'min'),
+    Last_Purchase=('Order Date', 'max')
+).reset_index()
+4.lifespan['Lifespan_Years'] = np.floor((lifespan['Last_Purchase'] - lifespan['First_Purchase']).dt.days / 365)
+5.lifespan['Lifespan_Years'] = lifespan['Lifespan_Years'].astype(int)
+
+# Merge All DataFrames
+5.CLV_Data = pd.merge(Avg_Purchase_Value, Customer_Purchase_Frequency, on='Customer ID')
+6.CLV_Final_Data = pd.merge(CLV_Data, lifespan, on='Customer ID')
+
+# Calculate CLV
+7.CLV_Final_Data['Customers_Lifetime_Value'] = (
+    CLV_Final_Data['Avg_Purchase_Value'] *
+    CLV_Final_Data['Purchase Frequency'] *
+    CLV_Final_Data['Lifespan_Years']
+)
+
+# Segment Customers Based on Average CLV
+8.Avg_Clv = CLV_Final_Data['Customers_Lifetime_Value'].mean()
+9.CLV_Final_Data['CLV_Segment'] = np.where(
+    CLV_Final_Data['Customers_Lifetime_Value'] > Avg_Clv,
+    'High Value',
+    'Low Value'
+)
+```
 ## 📊 CLV Segment Distribution Analysis
 
 This visualization helps to understand how the CLV values are distributed between High Value and Low Value customer segments.
@@ -105,59 +159,5 @@ plt.tight_layout(rect=[0,0,0,1])
 plt.subplots_adjust(hspace=0.5,wspace=0.5)
 plt.show()
 ```
-```python
-Count the number of customers in each CLV segment
-segment_counts = CLV_Final_Data['CLV_Segment'].value_counts()
-````
-## 4.💰 Customer Lifetime Value (CLV) Analysis
 
-In this step, we calculate the CLV for each customer by combining their average purchase value, purchase frequency, and lifespan. Based on the average CLV, customers are segmented into High Value and Low Value categories.
 
-✔️ Key Metrics:
-
-Average Purchase Value = Total Sales / Number of Unique Orders
-
-Purchase Frequency = Number of Unique Orders per Customer
-
-Customer Lifespan = Duration between First and Last Purchase (in years)
-
-CLV = Average Purchase Value × Purchase Frequency × Lifespan
-
-```python
-# Calculate Average Purchase Value
-Avg_Purchase_Value = Data.groupby('Customer ID')['Sales'].sum() / Data.groupby('Customer ID')['Order ID'].nunique()
-Avg_Purchase_Value = Avg_Purchase_Value.reset_index(name='Avg_Purchase_Value')
-
-# Calculate Customer Purchase Frequency
-Customer_Purchase_Frequency = Data.groupby('Customer ID')['Order ID'].nunique().reset_index(name='Purchase Frequency')
-
-# Calculate Customer Lifespan in Years
-lifespan = Data.groupby('Customer ID').agg(
-    First_Purchase=('Order Date', 'min'),
-    Last_Purchase=('Order Date', 'max')
-).reset_index()
-lifespan['Lifespan_Years'] = np.floor((lifespan['Last_Purchase'] - lifespan['First_Purchase']).dt.days / 365)
-lifespan['Lifespan_Years'] = lifespan['Lifespan_Years'].astype(int)
-
-# Merge All DataFrames
-CLV_Data = pd.merge(Avg_Purchase_Value, Customer_Purchase_Frequency, on='Customer ID')
-CLV_Final_Data = pd.merge(CLV_Data, lifespan, on='Customer ID')
-
-# Calculate CLV
-CLV_Final_Data['Customers_Lifetime_Value'] = (
-    CLV_Final_Data['Avg_Purchase_Value'] *
-    CLV_Final_Data['Purchase Frequency'] *
-    CLV_Final_Data['Lifespan_Years']
-)
-
-# Segment Customers Based on Average CLV
-Avg_Clv = CLV_Final_Data['Customers_Lifetime_Value'].mean()
-CLV_Final_Data['CLV_Segment'] = np.where(
-    CLV_Final_Data['Customers_Lifetime_Value'] > Avg_Clv,
-    'High Value',
-    'Low Value'
-)
-
-# Count of Each Segment
-segment_counts = CLV_Final_Data['CLV_Segment'].value_counts()
-````
