@@ -138,6 +138,8 @@ Avg_Purchase_Value = Avg_Purchase_Value.reset_index(name='Avg_Purchase_Value')
     'Low Value'
 )
 ```
+![CLV Distribution](images/CLV1%20(1).png)
+
 ## 5. 📊 CLV Segment Distribution Analysis
 
 This visualization helps to understand how the CLV values are distributed between High Value and Low Value customer segments.
