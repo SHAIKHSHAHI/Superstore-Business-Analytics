@@ -3,7 +3,7 @@
 - This Python-based deep dive project analyzes an eCommerce superstore dataset to uncover valuable business insights. --- It includes advanced analyses such as customer segmentation, product basket analysis, and customer lifetime value (CLV). 
 - The project also features key performance indicators (KPIs) visualization to track sales, profit, and customer metrics effectively.
 - This comprehensive approach helps in making data-driven decisions to boost business performance.
-## Importing Of All Required Liabraries
+### Importing Of All Required Liabraries
 ```python
 import pandas as pd
 import datetime as dt
