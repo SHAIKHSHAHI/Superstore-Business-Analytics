@@ -138,7 +138,7 @@ Avg_Purchase_Value = Avg_Purchase_Value.reset_index(name='Avg_Purchase_Value')
     'Low Value'
 )
 ```
-## 📊 CLV Segment Distribution Analysis
+## 5. 📊 CLV Segment Distribution Analysis
 
 This visualization helps to understand how the CLV values are distributed between High Value and Low Value customer segments.
 ```python
@@ -157,6 +157,43 @@ plt.suptitle('(CLV) Distribution Analysis',fontsize=16, fontweight='heavy')
 plt.savefig('(CLV)1.png')
 plt.tight_layout(rect=[0,0,0,1])
 plt.subplots_adjust(hspace=0.5,wspace=0.5)
+plt.show()
+```
+## 📈 Year-wise Customer & Order Analysis
+```python
+CustomersPerYear=Data.groupby('Year')['Customer ID'].nunique().reset_index()
+CustomersPerYear.columns=['Year','Customer Count']
+
+OrdersPerYear=Data.groupby('Year')['Order ID'].nunique().sort_values(ascending=False)
+PerYearOrders=OrdersPerYear.reset_index()
+PerYearOrders.columns=['Year','Total Orders']
+```
+```visual code
+plt.figure(figsize=(8,6),dpi=300)
+plt.subplot(1,2,1)
+sns.lineplot(data=CustomersPerYear,x='Year',y='Customer Count',
+color='green',marker='o')
+plt.title('Customer Trend By Year',fontsize=12,fontweight='bold',)
+plt.xlabel('Year',fontsize=12,fontweight='bold')
+plt.ylabel('Total Customers',fontsize=12,fontweight='bold')
+plt.grid(axis='y',color='pink', alpha=0.7)
+plt.gca().xaxis.set_major_locator(ticker.MaxNLocator(integer=True))
+
+plt.subplot(1,2,2)
+
+sns.lineplot(data=PerYearOrders, x='Year', y='Total Orders', marker='o', linewidth=2, palette='Oranges')
+
+plt.title('Orders Per Year', fontsize=12, fontweight='heavy')
+plt.xlabel('Years', fontsize=12,fontweight='heavy')
+plt.ylabel('Number of Orders Per Year', fontsize=12,fontweight='heavy')
+plt.grid(axis='y',color='pink', alpha=0.7)
+
+plt.suptitle('Yearly Business Performance',
+fontsize=14,fontweight='heavy')
+plt.tight_layout(rect=[1,1,1,3])
+plt.subplots_adjust(hspace=0.5, wspace=0.5)
+plt.savefig('Yearly Trend.png')
+
 plt.show()
 ```
 
