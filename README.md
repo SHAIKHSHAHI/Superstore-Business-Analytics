@@ -168,7 +168,8 @@ OrdersPerYear=Data.groupby('Year')['Order ID'].nunique().sort_values(ascending=F
 PerYearOrders=OrdersPerYear.reset_index()
 PerYearOrders.columns=['Year','Total Orders']
 ```
-```visual code
+```python
+visual code
 plt.figure(figsize=(8,6),dpi=300)
 plt.subplot(1,2,1)
 sns.lineplot(data=CustomersPerYear,x='Year',y='Customer Count',
