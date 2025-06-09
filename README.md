@@ -5,16 +5,14 @@
 - This comprehensive approach helps in making data-driven decisions to boost business performance.
 
 ```python
-Top10RevenueCities=Data.groupby('City')[['Sales','Profit']].sum().sort_values(by='Sales',ascending=False).head(10)
+Top10RevenueCities=Data.groupby('City')
+[['Sales','Profit']].sum().sort_values(by='Sales',ascending=False)
+.head(10)
 
-Top10ProfitCities=Data.groupby('City')[['Sales','Profit']].sum().sort_values(by='Profit',ascending=False).head(10)
+Top10ProfitCities=Data.groupby('City')
+[['Sales','Profit']].sum().sort_values(by='Profit',ascending=False)
+.head(10)
 ```
-### 🔹 Code Explanation
-
-```python
-Top10RevenueCities = Data.groupby('City')[['Sales','Profit']].sum().sort_values(by='Sales', ascending=False).head(10)
-
-
 ## Interpretation:
 Cities like Philadelphia, Chicago, Houston, and Jacksonville have high sales but show negative profits, possibly due to:
 
