@@ -155,7 +155,9 @@ Customer ID  Avg_Purchase_Value  Purchase Frequency First_Purchase  \
 4    2016-11-10               2                  1772.312   Low Value
 
 ```
-![CLV Distribution](images/%28CLV%291.png)
+
+![OverStock vs Under Stock Books](OverStock%20vs%20Under%20Stock%20Books.png)
+![CLV Distribution](CLV/%28Distribution%291.png)
 ## 5. 📊 CLV Segment Distribution Analysis
 
 This visualization helps to understand how the CLV values are distributed between High Value and Low Value customer segments.
