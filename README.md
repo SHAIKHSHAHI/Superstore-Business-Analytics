@@ -18,17 +18,19 @@ pd.set_option('display.max_columns', None)
 Data=pd.read_csv('/storage/emulated/0/Download/archive(2) (4)/Sample - Superstore.csv',
 encoding='latin1')
 ```
---changing Datatypes
+## changing Datatypes
+```python
 Data['Order Date']=pd.to_datetime(Data['Order Date'])
 Data['Ship Date']=pd.to_datetime(Data['Ship Date'])
 #Renaming Column
 Data.rename(columns={'Segment':'Customer Segment','Category':'Product Category'},inplace=True)--
-
-#Adding Columns
+```
+## Adding Columns
+```python
 Data['Year']=Data['Order Date'].dt.year
 Data['Day']=Data['Order Date'].dt.day_name()
 Data['Delay Days']=(Data['Ship Date']-Data['Order Date']).dt.days
-
+```
 ```python
 Top10RevenueCities=Data.groupby('City')
 [['Sales','Profit']].sum().sort_values(by='Sales',ascending=False)
