@@ -283,7 +283,9 @@ plt.savefig('Customer_Segment.png')
  - 2.As clearly visible all segment doesnt have much difference in sales performance.
 - 3.To see why it happened sales performace analysis of Segment yearly was needed to see how each segment performed so far.
 - 4.In the Year 2014 Home Office has highest sales later declined but even though declined somehow manage to balance according to sales of corporate and consumer in later years which has created greater impact in 4 years.
-
+- 5.On the other hand corporate sectore performed lowest in 2014 and 2015 also.
+- 6.Home Office Segment is Generating high sales we should do more efforts to increase customers from this segment as it can help us to grow even more.
+-  
 ## 📈 Year-wise Customer & Order Analysis
 ```python
 CustomersPerYear=Data.groupby('Year')['Customer ID'].nunique().reset_index()
