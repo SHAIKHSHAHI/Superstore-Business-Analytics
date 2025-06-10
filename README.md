@@ -131,6 +131,7 @@ San Diego       47521.029   6377.1960
 Count the number of customers in each CLV segment
 segment_counts = CLV_Final_Data['CLV_Segment'].value_counts()
 ````
+![CLV Distribution](CLV1.png)
 ## 4.💰 Customer Lifetime Value (CLV) Analysis
 
 In this step, we calculate the CLV for each customer by combining their average purchase value, purchase frequency, and lifespan. Based on the average CLV, customers are segmented into High Value and Low Value categories.
