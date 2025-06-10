@@ -128,7 +128,7 @@ San Diego       47521.029   6377.1960
 - 
 
 
-## 3.💰 Customer Lifetime Value (CLV) Analysis
+## 3.1 💰 Customer Lifetime Value (CLV) Analysis
 
 In this step, we calculate the CLV for each customer by combining their average purchase value, purchase frequency, and lifespan. Based on the average CLV, customers are segmented into High Value and Low Value categories.
 
@@ -194,7 +194,7 @@ Customer ID  Avg_Purchase_Value  Purchase Frequency First_Purchase  \
 4    2016-11-10               2                  1772.312   Low Value
 
 ```
-## 4. 📊 CLV Segment Distribution Analysis
+## 3.2 📊 CLV Segment Distribution Analysis
 
 This visualization helps to understand how the CLV values are distributed between High Value and Low Value customer segments.
 ```python
@@ -224,11 +224,12 @@ plt.show()
 - There Are also Some of the Customers In High Value have More Value compared to Others giving Priorities to thdm is very much needed as they are helping us to create high revenue and profits.
 - Customers having lifespan Between 1 to 4 years Showing Customer Loyalty Toward are business as they are Regular and Long time Customers.
 
-## 4.Distribution of Data with High Value vs Low Value Customers
+## 3.4 Distribution of Data with High Value vs Low Value Customers
 ```python
 Count the number of customers in each CLV segment
 segment_counts = CLV_Final_Data['CLV_Segment'].value_counts()
 ````
+![clv Distribution percentage]((CLV)1.png)
 
 ## 📈 Year-wise Customer & Order Analysis
 ```python
