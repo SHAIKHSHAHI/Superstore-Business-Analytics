@@ -18,6 +18,12 @@ pd.set_option('display.max_columns', None)
 Data=pd.read_csv('/storage/emulated/0/Download/archive(2) (4)/Sample - Superstore.csv',
 encoding='latin1')
 ```
+## #Checking Null
+NullChecking=Data.isnull().sum()
+
+## Checking Duplicates
+Duplicates=Data.duplicated().sum()
+
 ## changing Datatypes
 ```python
 Data['Order Date']=pd.to_datetime(Data['Order Date'])
@@ -25,6 +31,9 @@ Data['Ship Date']=pd.to_datetime(Data['Ship Date'])
 #Renaming Column
 Data.rename(columns={'Segment':'Customer Segment','Category':'Product Category'},inplace=True)--
 ```
+##Renaming Columns
+Data.rename(columns={'Segment':'Customer Segment',
+'Category':'Product Category'},inplace=True)
 ## Adding Columns
 ```python
 Data['Year']=Data['Order Date'].dt.year
