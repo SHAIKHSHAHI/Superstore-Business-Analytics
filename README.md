@@ -31,7 +31,7 @@ Data['Year']=Data['Order Date'].dt.year
 Data['Day']=Data['Order Date'].dt.day_name()
 Data['Delay Days']=(Data['Ship Date']-Data['Order Date']).dt.days
 ```
-## Key Insights:
+## 1.Key Insights:
 ```python
 total_sales = Data['Sales'].sum()
 total_profit = Data['Profit'].sum()
@@ -56,7 +56,7 @@ plt.show()
 ```
 ![KPI Image](Kpi.png)
 
-## Top10 Cities Revenue Generated vs Top10 profit Earned Cities 
+## 2.Top10 Cities Revenue Generated vs Top10 profit Earned Cities 
 
 ### Steps:
 
@@ -108,7 +108,7 @@ Atlanta         17197.840   6993.6629
 Minneapolis     16870.540   6824.5846
 San Diego       47521.029   6377.1960
 ```
-## Interpretation:
+### Interpretation:
 - 1.The first four cities — New York City, Los Angeles, Seattle, and San Francisco — appear in both Top Sales and Top Profit lists, indicating strong alignment between sales revenue and profitability.
 
 - 2.This suggests these cities generate high sales efficiently, converting revenue into profit effectively.
@@ -126,15 +126,9 @@ San Diego       47521.029   6377.1960
 
 - 5.This indicates efficient operations or higher profit margins in these locations, contributing positively to overall profitability.
 - 
-#
-```python
-Count the number of customers in each CLV segment
-segment_counts = CLV_Final_Data['CLV_Segment'].value_counts()
-````
 
-![CLV Distribution]((CLV)2.png)
 
-## 4.💰 Customer Lifetime Value (CLV) Analysis
+## 3.💰 Customer Lifetime Value (CLV) Analysis
 
 In this step, we calculate the CLV for each customer by combining their average purchase value, purchase frequency, and lifespan. Based on the average CLV, customers are segmented into High Value and Low Value categories.
 
@@ -200,13 +194,7 @@ Customer ID  Avg_Purchase_Value  Purchase Frequency First_Purchase  \
 4    2016-11-10               2                  1772.312   Low Value
 
 ```
-
-![OverStock vs Under Stock Books](OverStock%20vs%20Under%20Stock%20Books.png)
-
-![CLV Distribution](CLV/%28Distribution%291.png)
-
-
-## 5. 📊 CLV Segment Distribution Analysis
+## 4. 📊 CLV Segment Distribution Analysis
 
 This visualization helps to understand how the CLV values are distributed between High Value and Low Value customer segments.
 ```python
@@ -227,6 +215,21 @@ plt.tight_layout(rect=[0,0,0,1])
 plt.subplots_adjust(hspace=0.5,wspace=0.5)
 plt.show()
 ```
+### Finding Outliers
+![CLV Distribution]((CLV)2.png)
+
+### Interpretation
+- As we Can See We have both Customers High Value and Low Value.
+- High Value Customers Are More We have gained.
+- There Are also Some of the Customers In High Value have More Value compared to Others giving Priorities to thdm is very much needed as they are helping us to create high revenue and profits.
+- Customers having lifespan Between 1 to 4 years Showing Customer Loyalty Toward are business as they are Regular and Long time Customers.
+
+## 4.Distribution of Data with High Value vs Low Value Customers
+```python
+Count the number of customers in each CLV segment
+segment_counts = CLV_Final_Data['CLV_Segment'].value_counts()
+````
+
 ## 📈 Year-wise Customer & Order Analysis
 ```python
 CustomersPerYear=Data.groupby('Year')['Customer ID'].nunique().reset_index()
