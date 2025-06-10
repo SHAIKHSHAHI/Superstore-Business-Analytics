@@ -47,12 +47,15 @@ fontsize=16,family='arial',fontweight='bold', bbox=dict(facecolor='pink', alpha=
 plt.text(0.1, 0.4, f"|Total Profit Earned\n  $ {total_profit:,.0f}",
 fontsize=16,family='arial',fontweight='bold', bbox=dict(facecolor='lightgreen', alpha=0.5))
 plt.text(0.1, 0.2, f"|Total Orders Placed\n  {total_orders}",
-fontsize=16,family='arial',fontweight='bold', bbox=dict(facecolor='lightgreen', alpha=0.5))
-````
-plt.axis('off')  # Hide axes
+fontsize=16,family='arial',fontweight='bold', bbox=dict(facecolor='lightgreen', alpha=0.5)
+plt.axis('off')
+# Hide axes
 plt.tight_layout(rect=[0,0,0,1])
 plt.savefig('Kpi.png')
 plt.show()
+```
+![KPI Image](Kpi.png)
+
 ## Top10 Cities Revenue Generated vs Top10 profit Earned Cities 
 
 ### Steps:
