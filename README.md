@@ -108,7 +108,7 @@ Atlanta         17197.840   6993.6629
 Minneapolis     16870.540   6824.5846
 San Diego       47521.029   6377.1960
 ```
-### Interpretation:
+### ✨ Interpretation:
 - 1.The first four cities — New York City, Los Angeles, Seattle, and San Francisco — appear in both Top Sales and Top Profit lists, indicating strong alignment between sales revenue and profitability.
 
 - 2.This suggests these cities generate high sales efficiently, converting revenue into profit effectively.
@@ -125,7 +125,6 @@ San Diego       47521.029   6377.1960
 - 4.Conversely, cities such as Detroit, Lafayette, Jackson, Atlanta, and Minneapolis have moderate or low sales but are among the top profit earners.
 
 - 5.This indicates efficient operations or higher profit margins in these locations, contributing positively to overall profitability.
-- 
 
 
 ## 3.1 💰 Customer Lifetime Value (CLV) Analysis
@@ -225,7 +224,7 @@ segment_counts = CLV_Final_Data['CLV_Segment'].value_counts()
 ![clv Distribution percentage]((CLV)1.png)
 
 
-### Interpretation
+### ✨ Interpretation
  - As we Can See We have both Customers High Value and Low Value.
 - High Value Customers Are More We have gained.
 - There Are also Some of the Customers In High Value have More Value compared to Others giving Priorities to thdm is very much needed as they are helping us to create high revenue and profits.
@@ -276,7 +275,7 @@ plt.tight_layout(rect=[1,1,1,3])
 plt.subplots_adjust(hspace=0.5, wspace=0.5)
 plt.savefig('Customer_Segment.png')
 ```
-### Interpretation:
+### ✨ Interpretation:
  - 1.Even though total customers in this 4 years have more from consumer segment it doesnt helped in increasing sales more.
  - 2.As clearly visible all segment doesnt have much difference in sales performance.
 - 3.To see why it happened sales performace analysis of Segment yearly was needed to see how each segment performed so far.
