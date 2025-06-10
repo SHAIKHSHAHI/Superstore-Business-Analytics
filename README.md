@@ -132,15 +132,15 @@ San Diego       47521.029   6377.1960
 
 In this step, we calculate the CLV for each customer by combining their average purchase value, purchase frequency, and lifespan. Based on the average CLV, customers are segmented into High Value and Low Value categories.
 
-✔️ Key Metrics:
+### ✔️ Key Metrics:
 
-- 1.Average Purchase Value = Total Sales / Number of Unique Orders
+### - 1.Average Purchase Value = Total Sales / Number of Unique Orders
 
-- 2.Purchase Frequency = Number of Unique Orders per Customer
+### - 2.Purchase Frequency = Number of Unique Orders per Customer
 
-- 3.Customer Lifespan = Duration between First and Last Purchase (in years)
+### - 3.Customer Lifespan = Duration between First and Last Purchase (in years)
 
-- 4.CLV = Average Purchase Value × Purchase Frequency × Lifespan
+### - 4.CLV = Average Purchase Value × Purchase Frequency × Lifespan
 
 ```python
 # Calculate Average Purchase Value
@@ -218,18 +218,69 @@ plt.show()
 ### Finding Outliers
 ![CLV Distribution]((CLV)2.png)
 
-### Interpretation
-- As we Can See We have both Customers High Value and Low Value.
-- High Value Customers Are More We have gained.
-- There Are also Some of the Customers In High Value have More Value compared to Others giving Priorities to thdm is very much needed as they are helping us to create high revenue and profits.
-- Customers having lifespan Between 1 to 4 years Showing Customer Loyalty Toward are business as they are Regular and Long time Customers.
-
 ## 3.4 Distribution of Data with High Value vs Low Value Customers
 ```python
 Count the number of customers in each CLV segment
 segment_counts = CLV_Final_Data['CLV_Segment'].value_counts()
 ````
 ![clv Distribution percentage]((CLV)1.png)
+
+
+### Interpretation
+### - As we Can See We have both Customers High Value and Low Value.
+### - High Value Customers Are More We have gained.
+### - There Are also Some of the Customers In High Value have More Value compared to Others giving Priorities to thdm is very much needed as they are helping us to create high revenue and profits.
+### - Customers having lifespan Between 1 to 4 years Showing Customer Loyalty Toward are business as they are Regular and Long time Customers.
+### - As we have total 4 Years Data We Given Lifespan Value Based on their existence in the business from First purchase ### Date to Last Purchase Date to know their exact lifespan in the business.
+- 
+## 4.🧑‍🦱 Customer Segment Analysis
+### - simply grouping the data based on Customer segment.
+### - finding total number of unique customers from each segment.
+### - To See From where we have most customers vs where we have generated more sales.
+### - Then Sales Trend of Customer Segment by year to see which customer segment have grown or which segment performance declined.
+```python
+CustomersByCustomerSegment=Data.groupby('Customer Segment')['Customer ID'].nunique().reset_index()
+CustomersByCustomerSegment.columns=['Customer Segment','Unique Customers']
+```
+```python
+Visual Code
+plt.figure(figsize=(8, 6),dpi=300)
+plt.subplot(2,1,1)
+sns.countplot(data=Data,x='Customer Segment',palette='vlag')
+plt.title('Total Unique Customers of Each Customer Segment',fontsize=14,fontweight='heavy')
+plt.xlabel('Customer Segment',fontsize=14,fontweight='heavy')
+plt.ylabel('Count',fontsize=14,fontweight='heavy')
+plt.grid(axis='y',color='gray',linestyle=':',linewidth=0.5)
+
+plt.subplot(2,1,2)
+sns.barplot(data=Data,x='Customer Segment',y='Sales',palette='Blues')
+plt.title(' Total Sales By Each Customer Segment',fontsize=14,fontweight='heavy')
+plt.xlabel('Customer Segment',fontsize=14,fontweight='heavy')
+plt.ylabel('Sales',fontsize=14,fontweight='heavy')
+plt.grid(axis='y',color='gray',linestyle=':',linewidth=0.5)
+
+plt.suptitle("Comparison of Total Customers vs Sales By CustomerSegment",
+fontsize=14,fontweight='heavy')
+plt.subplots_adjust(hspace=0.5, wspace=0.5)
+plt.savefig('Customer_Segment.png')
+
+plt.figure(figsize=(8,6),dpi=300)
+sns.barplot(data=Data,x='Customer Segment',y='Sales',hue='Year')
+plt.title('Customer Segment Yearly Sales Trend',fontsize=14,fontweight='heavy')
+plt.xlabel('Customer Segment',fontsize=14,fontweight='heavy')
+plt.ylabel('Sales',fontsize=14,fontweight='heavy')
+plt.grid(axis='y',color='gray',linestyle=':',linewidth=1)
+
+plt.suptitle("Yearly Sales Trend By Customer Segment",
+fontsize=14,fontweight='heavy')
+plt.tight_layout(rect=[1,1,1,3])
+plt.subplots_adjust(hspace=0.5, wspace=0.5)
+plt.savefig('Customer_Segment.png')
+```
+### Interpretation:
+#### - 1.Even though total customers in this 4 years have more from consumer segment it doesnt helped in increasing sales more.
+### - 2.As clearly visible all segment doesnt have much difference in sales performance.
+### - 3.To see why it happened sales performace analysis of Segment yearly was needed to see how each segment performed so far.
 
 ## 📈 Year-wise Customer & Order Analysis
 ```python
