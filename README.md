@@ -340,7 +340,7 @@ UniqueCustomers=pd.DataFrame(Data['Customer ID'].unique(),columns=['Customer ID'
 Sales_MonthlyandYearly = Data.groupby(['Year', 'MonthName', 'Month'])[['Sales', 'Profit']].sum().reset_index()
 Sales_MonthlyandYearly = Sales_MonthlyandYearly.sort_values(by=['Year', 'Month'])
 ```
-
+![Yearly Trend](Yearly Trend.png)
 
 
 
