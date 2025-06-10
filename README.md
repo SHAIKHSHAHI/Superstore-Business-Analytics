@@ -31,6 +31,23 @@ Data['Year']=Data['Order Date'].dt.year
 Data['Day']=Data['Order Date'].dt.day_name()
 Data['Delay Days']=(Data['Ship Date']-Data['Order Date']).dt.days
 ```
+## Top10 Cities Revenue Generated vs Top10 profit Earned Cities 
+
+### Steps:
+
+1.Groups the dataset by City.
+
+2.Calculates total Sales and Profit for each city.
+
+3.Sorts the results by Sales in descending order.
+
+4.Returns the top 10 cities based on revenue generated
+
+5.Performs the same grouping and aggregation.
+
+6.Sorts the cities based on Profit in descending order.
+
+Returns the top 10 cities that earned the highest profit.
 ```python
 Top10RevenueCities=Data.groupby('City')
 [['Sales','Profit']].sum().sort_values(by='Sales',ascending=False)
