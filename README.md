@@ -275,6 +275,9 @@ plt.tight_layout(rect=[1,1,1,3])
 plt.subplots_adjust(hspace=0.5, wspace=0.5)
 plt.savefig('Customer_Segment.png')
 ```
+![Customer Segment 1](Customer_Segment.png)
+![Customer Segment 2](Customer_Segment_YearlySales.png)
+
 ### ✨ Interpretation:
  - 1.Even though total customers in this 4 years have more from consumer segment it doesnt helped in increasing sales more.
  - 2.As clearly visible all segment doesnt have much difference in sales performance.
