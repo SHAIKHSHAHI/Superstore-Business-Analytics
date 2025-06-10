@@ -31,6 +31,24 @@ Data['Year']=Data['Order Date'].dt.year
 Data['Day']=Data['Order Date'].dt.day_name()
 Data['Delay Days']=(Data['Ship Date']-Data['Order Date']).dt.days
 ```
+## Key Insights:
+```python
+total_sales = Data['Sales'].sum()
+total_profit = Data['Profit'].sum()
+total_customers = Data['Customer ID'].nunique()
+total_orders = Data['Order ID'].nunique()
+```
+```python
+Visual Code
+plt.text(0.1, 0.8, f"|Total Unique Customers\n  {total_customers}", fontsize=16,family='arial',fontweight='bold', bbox=dict(facecolor='pink', alpha=0.5))
+plt.text(0.1, 0.6, f"|Total Sales Generated\n  $ {total_sales:,.0f}", fontsize=16,family='arial',fontweight='bold', bbox=dict(facecolor='pink', alpha=0.5))
+plt.text(0.1, 0.4, f"|Total Profit Earned\n  $ {total_profit:,.0f}", fontsize=16,family='arial',fontweight='bold', bbox=dict(facecolor='lightgreen', alpha=0.5))
+plt.text(0.1, 0.2, f"|Total Orders Placed\n  {total_orders}", fontsize=16,family='arial',fontweight='bold', bbox=dict(facecolor='lightgreen', alpha=0.5))
+````
+plt.axis('off')  # Hide axes
+plt.tight_layout(rect=[0,0,0,1])
+plt.savefig('Kpi.png')
+plt.show()
 ## Top10 Cities Revenue Generated vs Top10 profit Earned Cities 
 
 ### Steps:
