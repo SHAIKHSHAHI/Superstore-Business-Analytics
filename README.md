@@ -213,7 +213,7 @@ plt.tight_layout(rect=[0,0,0,1])
 plt.subplots_adjust(hspace=0.5,wspace=0.5)
 plt.show()
 ```
-### Finding Outliers
+### 3.3 Finding Outliers
 ![CLV Distribution]((CLV)2.png)
 
 ## 3.4 Distribution of Data with High Value vs Low Value Customers
@@ -286,7 +286,7 @@ plt.savefig('Customer_Segment.png')
 - 5.On the other hand corporate sectore performed lowest in 2014 and 2015 also.
 - 6.Home Office Segment is Generating high sales we should do more efforts to increase customers from this segment as it can help us to grow even more.
 
-## 📈 Year-wise Customer & Order Analysis
+## 5.📈 Year-wise Customer & Order Analysis
 ```python
 CustomersPerYear=Data.groupby('Year')['Customer ID'].nunique().reset_index()
 CustomersPerYear.columns=['Year','Customer Count']
@@ -324,16 +324,24 @@ plt.savefig('Yearly Trend.png')
 
 plt.show()
 ```
-## Repeated vs Non Repeated
-- We first extracted all unique customers using .unique() to avoid counting duplicates. Then, we filtered the dataset to include only those unique customers for accurate analysis of their order behavior.
-- This code identifies whether each customer is a repeated or non-repeated buyer based on their number of unique orders. If a customer has placed more than one order, they are labeled as Repeated, else Non-Repeated.
+## 6.Repeated vs Non Repeated
+### Steps:
+- 1.We first extracted all unique customers using .unique() to avoid counting duplicates. Then, we filtered the dataset to include only those unique customers for accurate analysis of their order behavior.
+- 2.This code identifies whether each customer is a repeated or non-repeated buyer based on their number of unique orders. If a customer has placed more than one order, they are labeled as Repeated, else Non-Repeated.
 ```python
 UniqueCustomers=pd.DataFrame(Data['Customer ID'].unique(),columns=['Customer ID']) UniqueCustomersData=Data[Data['Customer ID'].isin(UniqueCustomers['Customer ID'])] CustomersWithOrderCounts=UniqueCustomersData.groupby('Customer ID')['Order ID'].nunique() CustomersWithOrderCounts = CustomersWithOrderCounts.reset_index() CustomersWithOrderCounts['Customer Type'] = np.where( CustomersWithOrderCounts['Order ID'] > 1, 'Repeated', 'Non-Repeated' ) Explain in 2 line
 ```
+# 📈 7.Superstore Yearly Sales And Profit Trend.
 
-
+- 1.We aggregated total Sales and Profit by Year and Month.
+- 2.Then sorted it to understand sales performance trends over time for time series or line chart visualization.
 
 ```python
+Sales_MonthlyandYearly = Data.groupby(['Year', 'MonthName', 'Month'])[['Sales', 'Profit']].sum().reset_index()
+Sales_MonthlyandYearly = Sales_MonthlyandYearly.sort_values(by=['Year', 'Month'])
+```
+
+
 
 
 
