@@ -360,4 +360,45 @@ Sales_MonthlyandYearly = Sales_MonthlyandYearly.sort_values(by=['Year', 'Month']
 - 3.Helps in answering questions like ,do increase in customers leads to increase in Orders?
 - 4.And The Answer is Yes in 2016 and 2017 we can see that.
 - 5. Even if Customers we loose in 2015 somehow managed to receive orders.
+  
+📈 Seasonal Sales & Profit Trend Analysis (2014–2017)
+```python
+Sales_MonthlyandYearly=Data.groupby(['Year','MonthName','Month'])
+[['Sales','Profit']].sum().reset_index()
+Sales_MonthlyandYearly=Sales_MonthlyandYearly.sort_values
+(by=['Year','Month'])
+```
 
+###  📊 Sales Trend Summary
+
+September and December show consistently good sales, especially in 2016 and 2017.
+
+November 2017 recorded the highest sales overall.
+
+February had the lowest sales across all years and needs more attention.
+
+October sales were low in 2014 and 2015, but improved in 2016 and 2017.
+
+The consecutive months September, October, November, and December are the strongest performing months.
+
+### 💰 Profit vs Sales Comparison
+
+In 2016, highest profits were seen in October and December.
+
+In 2017, March showed the highest profit, indicating a shift in market trend.
+
+March had good sales in both 2016 and 2017, but profit came only in 2017.
+
+This shows a partial correlation between high sales and profit in months like October, November, December, and March.
+
+The business faced losses (negative profits) in early years (2014 and 2017)
+
+### ⚠️ Months Needing More Attention
+
+February and March: Poor profit performance in all four years.
+
+April: Sales similar to June and July, but not generating enough profit.
+
+Moderate profit observed in June, July, August, and January in 2017.
+
+Indicates a seasonal shift in profit patterns.
