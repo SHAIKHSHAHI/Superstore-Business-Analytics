@@ -226,7 +226,7 @@ plt.tight_layout(rect=[0,0,0,1])
 plt.subplots_adjust(hspace=0.5,wspace=0.5)
 plt.show()
 ```
-### 3.3 Finding Outliers
+## 3.3 Finding Outliers
 ![CLV Distribution]((CLV)2.png)
 
 ## 3.4 Distribution of Data with High Value vs Low Value Customers
@@ -237,7 +237,7 @@ segment_counts = CLV_Final_Data['CLV_Segment'].value_counts()
 ![clv Distribution percentage]((CLV)1.png)
 
 
-### ✨ Interpretation
+## ✨ Interpretation
  - As we Can See We have both Customers High Value and Low Value.
 - High Value Customers Are More We have gained.
 - There Are also Some of the Customers In High Value have More Value compared to Others giving Priorities to thdm is very much needed as they are helping us to create high revenue and profits.
@@ -290,14 +290,33 @@ plt.savefig('Customer_Segment.png')
 ```
 ![Customer Segment 1](Customer_Segment.png)
 ![Customer Segment 2](Customer_Segment_YearlySales.png)
+```plaintext
+🏠 Fewer Customers: Home Office  
+👥 Most Customers: Consumer Segment  
+🔥 High Sales (2014): Home Office  
+📈 Top Segment (2016–17): Corporate  
+⚖️ All Segments: Performing Well Overall
+```
+## ✨ Interpretation:
+ 
+## 🧍‍♂️ Customers vs Sales by Segment
 
-### ✨ Interpretation:
- - 1.Even though total customers in this 4 years have more from consumer segment it doesnt helped in increasing sales more.
- - 2.As clearly visible all segment doesnt have much difference in sales performance.
-- 3.To see why it happened sales performace analysis of Segment yearly was needed to see how each segment performed so far.
-- 4.In the Year 2014 Home Office has highest sales later declined but even though declined somehow manage to balance according to sales of corporate and consumer in later years which has created greater impact in 4 years.
-- 5.On the other hand corporate sectore performed lowest in 2014 and 2015 also.
-- 6.Home Office Segment is Generating high sales we should do more efforts to increase customers from this segment as it can help us to grow even more.
+- Based on **Customer Segments** available in the original data.
+- Comparison of **total unique customers** vs **total sales generated** by each segment was done to understand overall growth across all years.
+- The **Home Office** segment has **fewer customers**, while the **Consumer** segment has the **most customers**.
+- In terms of sales, **Home Office generated the lowest overall sales** — the situation is reversed between customer count and revenue.
+
+## 📊 Yearly Sales Trend by Segment
+
+- To get a **clearer picture**, we analyzed the **yearly sales trend** of each segment.
+- In **2014**, the **Home Office** segment generated the **highest sales**.
+- In the latest years (**2016 and 2017**), the **Corporate** segment achieved the **top position** in sales.
+- There is only a **slight difference** in total sales across all customer segments, showing **balanced and consistent performance**.
+
+## 📈 Segment Performance Overview
+
+- **All segments are performing well** overall.
+- The **Consumer** segment maintained **moderate sales** in **2015 and 2016**.
 
 ## 5.📈 Year-wise Customer & Order Analysis
 ```python
@@ -361,7 +380,7 @@ Sales_MonthlyandYearly = Sales_MonthlyandYearly.sort_values(by=['Year', 'Month']
 - 4.And The Answer is Yes in 2016 and 2017 we can see that.
 - 5. Even if Customers we loose in 2015 somehow managed to receive orders.
   
-# 📈 Seasonal Sales & Profit Trend Analysis (2014–2017)
+# 8.📈 Seasonal Sales & Profit Trend Analysis (2014–2017)
 ```python
 Sales_MonthlyandYearly=Data.groupby(['Year','MonthName','Month'])
 [['Sales','Profit']].sum().reset_index()
@@ -417,7 +436,8 @@ April: Sales similar to June and July, but not generating enough profit.
 Moderate profit observed in June, July, August, and January in 2017.
 
 Indicates a seasonal shift in profit patterns.
-# 📈 Categorical Analysis(Shipping Performance, Customers Regional Growth & Product Category Spread) (2014–2017)
+
+# 9.📈 Categorical Analysis(Shipping Performance, Customers Regional Growth & Product Category Spread) (2014–2017)
 
 ## 🧭 Customer Distribution & Growth Across Regions
 ![Customer Distribution & Growth Across Regions](Customer%20Region.png)
@@ -453,3 +473,4 @@ Indicates a seasonal shift in profit patterns.
 - The number of sub-categories is different for each product category, showing product variety.
 
 - This analysis helps understand how the business is expanding in regions and how well shipping is performing.
+
