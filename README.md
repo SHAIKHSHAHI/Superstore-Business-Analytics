@@ -44,6 +44,8 @@ Data['Year']=Data['Order Date'].dt.year
 Data['Day']=Data['Order Date'].dt.day_name()
 Data['Delay Days']=(Data['Ship Date']-Data['Order Date']).dt.days
 ```
+![Sales vs Profit Ratio](Sales%20vs%20Profit%20Ratio.png)
+
 # 1.Key Insights:
 ```python
 total_sales = Data['Sales'].sum()
