@@ -555,50 +555,21 @@ plt.savefig('RFM.png')
 plt.tight_layout(rect=[0,0,0,1])
 plt.subplots_adjust(hspace=0.5,wspace=0.5)
 plt.show()
-```
-## ***✅ Steps for RFM Segmentation***
+``` 
+![RFM](RFM.png)
+## Explaination:
 
-## **1. Calculate Customer Metrics**
+**📌 R (Recency): Calculate days since each customer's last purchase.**
 
-Total Sales per Customer (CustomerSpending)
+**🔁 F (Frequency): Count how many orders each customer placed.**
 
-Purchase Frequency: Number of unique orders per customer
+**💰 M (Monetary): Sum total spending by each customer.**
 
-Last Purchase Date for each customer
+**📊 Scoring: Use qcut() to assign scores (1–4) for R, F, and M.**
 
-### **2. Calculate Recency**
+**🏷️ Segmenting: Classify customers based on RFM scores into groups like Champions, Loyal, At Risk, etc.**
+Others**
 
-Find the number of days between today and the last purchase date for each customer
-
-### **3. Score Customers**
-
-Use quartiles to assign scores from 1 to 4 for:
-
-Recency (R): More recent = higher score
-
-Frequency (F): More orders = higher score
-
-Monetary (M): Higher spending = higher score
-
-### **4. Combine RFM Scores**
-
-Create a total RFM score by adding R, F, and M
-
-### **5. Segment Customers**
-
-Based on RFM scores, assign each customer to a segment like:
-
-Champion Customers
-
-Loyal Customer
-
-Potential Loyalist
-
-At Risk
-
-Lost
-
-Others
  ## ✨ Interpretation:
  
 ### 🏆 Champion Customers
