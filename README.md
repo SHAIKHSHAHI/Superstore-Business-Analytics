@@ -328,7 +328,7 @@ plt.savefig('Customer_Segment.png')
 - **All segments are performing well** overall.
 - The **Consumer** segment maintained **moderate sales** in **2015 and 2016**.
 
-# 5. ## 📈 Customer Trend & Order Insights (2014–2017)
+# 5.  📈 Customer Trend & Order Insights (2014–2017)
 ```python#
 CustomersPerYear=Data.groupby('Year')['Customer ID'].nunique().reset_index()
 CustomersPerYear.columns=['Year','Customer Count']
