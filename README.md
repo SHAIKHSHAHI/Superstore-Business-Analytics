@@ -328,8 +328,8 @@ plt.savefig('Customer_Segment.png')
 - **All segments are performing well** overall.
 - The **Consumer** segment maintained **moderate sales** in **2015 and 2016**.
 
-# 5.📈 Year-wise Customer & Order Analysis
-```python
+# 5. ## 📈 Customer Trend & Order Insights (2014–2017)
+```python#
 CustomersPerYear=Data.groupby('Year')['Customer ID'].nunique().reset_index()
 CustomersPerYear.columns=['Year','Customer Count']
 
@@ -366,8 +366,13 @@ plt.savefig('Yearly Trend.png')
 
 plt.show()
 ```
-
-# 6.Repeated vs Non Repeated
+### ✨ Interpretation:
+- ❌ In **2014**, the business had a good number of customers but **lost** some of them the following year.
+- 🔁 Surprisingly, in **2015**, despite the drop in customers, the number of **orders increased**, indicating stronger engagement or repeat purchases.
+- 📊 From **2016 to 2017**, both **customers and orders showed steady growth**, highlighting a **positive customer trend**.
+- ✅ Comparing **customer count vs. order count** gave valuable insights — a rise in customers clearly contributed to more orders in the later years.
+- 
+# 6. 🔁 Repeated vs Non-Repeated Customers
 ### Steps:
 - 1.We first extracted all unique customers using .unique() to avoid counting duplicates. Then, we filtered the dataset to include only those unique customers for accurate analysis of their order behavior.
 - 2.This code identifies whether each customer is a repeated or non-repeated buyer based on their number of unique orders. If a customer has placed more than one order, they are labeled as Repeated, else Non-Repeated.
@@ -375,26 +380,21 @@ plt.show()
 UniqueCustomers=pd.DataFrame(Data['Customer ID'].unique(),columns=['Customer ID']) UniqueCustomersData=Data[Data['Customer ID'].isin(UniqueCustomers['Customer ID'])] CustomersWithOrderCounts=UniqueCustomersData.groupby('Customer ID')['Order ID'].nunique() CustomersWithOrderCounts = CustomersWithOrderCounts.reset_index() CustomersWithOrderCounts['Customer Type'] = np.where( CustomersWithOrderCounts['Order ID'] > 1, 'Repeated', 'Non-Repeated' ) Explain in 2 line
 ```
 ## ✨Interpretation:
-- 1.we had a Good number of Customers in the initial year then declined in 2015 but later on has better change, consumers getting added later and have wonderful consumer growth in the later years.
-- 2.We compared Consumer Trend vs Orders Trend to see Co-relation between Consumers and Orders.
-- 3.Helps in answering questions like ,do increase in customers leads to increase in Orders?
-- 4.And The Answer is Yes in 2016 and 2017 we can see that.
-- 5. Even if Customers we loose in 2015 somehow managed to receive orders.
-  
-# 📈 7. Yearly Sales And Profit Trend.
+- 📦 **Repeated Customers**: Customers who have placed **more than 1 order**.
+- 🧍 **Non-Repeated Customers**: Customers who have placed **only 1 order**.
 
-- 1.We aggregated total Sales and Profit by Year and Month.
-- 2.Then sorted it to understand sales performance trends over time for time series or line chart visualization.
+### 📊 Why This Is Useful:
+- Stored results in `CustomerswithOrderCounts` DataFrame for easy tracking and future analysis.
+- 🛍️ Helps identify **non-repeated customers** — useful for targeting with:
+  - 🔖 Discounts
+  - 🤝 Recommendations
+  - 💬 Personalized outreach
 
-```python
-Sales_MonthlyandYearly = Data.groupby(['Year', 'MonthName', 'Month'])[['Sales', 'Profit']].sum().reset_index()
-Sales_MonthlyandYearly = Sales_MonthlyandYearly.sort_values(by=['Year', 'Month'])
-```
-![Yearly Trend](Yearly%20Trend.png)
-## ✨Interpretation:
+- 🔄 Repeated customer data is valuable to:
+  - 🔍 Understand **frequently ordered products**
+  - 🎯 Discover customer **interests & preferences**
 
-
-# 8.📈 Seasonal Sales & Profit Trend Analysis (2014–2017)
+# 7.📈 Seasonal Sales & Profit Trend Analysis (2014–2017)
 ```python
 Sales_MonthlyandYearly=Data.groupby(['Year','MonthName','Month'])
 [['Sales','Profit']].sum().reset_index()
@@ -451,7 +451,7 @@ Moderate profit observed in June, July, August, and January in 2017.
 
 Indicates a seasonal shift in profit patterns.
 
-# 9.📈 Categorical Analysis(Shipping Performance, Customers Regional Growth & Product Category Spread) (2014–2017)
+# 8.📈 Categorical Analysis(Shipping Performance, Customers Regional Growth & Product Category Spread) (2014–2017)
 
 ## 🧭 Customer Distribution & Growth Across Regions
 ![Customer Distribution & Growth Across Regions](Customer%20Region.png)
@@ -488,3 +488,130 @@ Indicates a seasonal shift in profit patterns.
 
 - This analysis helps understand how the business is expanding in regions and how well shipping is performing.
 
+import pandas as pd
+import numpy as np
+
+# 9.🎯 RFM-Based Customer Behavior Analysis
+```python
+# 1. Calculate total spending per customer
+CustomerSpending = UniqueCustomersDetails.groupby('Customer ID')['Sales'].sum().reset_index(name='CustomerSpending')
+
+# 2. Calculate purchase frequency per customer
+CustomerOrderFrequency = UniqueCustomersDetails.groupby('Customer ID')['Order ID'].nunique().reset_index(name='PurchaseFrequency')
+
+# 3. Get last purchase date
+CustomerLastPurchase = UniqueCustomersDetails.groupby('Customer ID')['Order Date'].max().reset_index(name='Last Purchase')
+Current_Date = pd.to_datetime('today')
+
+# 4. Merge all metrics into one DataFrame
+Merge = pd.merge(CustomerSpending, CustomerOrderFrequency, on='Customer ID')
+RFM_Customers = pd.merge(Merge, CustomerLastPurchase, on='Customer ID')
+
+# 5. Calculate recency in days
+RFM_Customers['Recency'] = (Current_Date - RFM_Customers['Last Purchase']).dt.days
+
+# 6. RFM scoring using quartiles (1 to 4)
+r = pd.qcut(RFM_Customers['Recency'], q=4, labels=range(4, 0, -1))
+f = pd.qcut(RFM_Customers['PurchaseFrequency'], q=4, labels=range(1, 5))
+m = pd.qcut(RFM_Customers['CustomerSpending'], q=4, labels=range(1, 5))
+
+RFM = RFM_Customers.assign(R=r.values, F=f.values, M=m.values)
+
+# 7. Combine scores
+RFM['RFM_Score'] = RFM['R'].astype(int) + RFM['F'].astype(int) + RFM['M'].astype(int)
+
+# 8. Segment customers based on RFM values
+def segment_customer(row):
+    if row['R'] >= 3 and row['F'] >= 3 and row['M'] >= 3:
+        return 'Champion Customers'
+    elif row['R'] >= 3 and row['F'] >= 2:
+        return 'Loyal Customer'
+    elif row['R'] >= 2 and row['F'] <= 2:
+        return 'Potential Loyalist'
+    elif row['R'] <= 2 and row['F'] >= 3:
+        return 'At Risk'
+    elif row['R'] == 1 and row['F'] == 1:
+        return 'Lost'
+    else:
+        return 'Others'
+
+RFM['Segment'] = RFM.apply(segment_customer, axis=1)
+```
+```python
+visual Code
+plt.figure(figsize=(8, 8),dpi=300)
+sns.countplot(data=RFM,x='Segment',palette='deep')
+plt.xlabel('Customer Segment',fontsize=12,fontweight='heavy')
+plt.ylabel('Counts',fontsize=12,fontweight='heavy')
+plt.xticks(rotation=10)
+
+plt.suptitle('Comparison Of CustomerCount Based on RFM segment',fontsize=14,fontweight='heavy')
+plt.savefig('RFM.png')
+plt.tight_layout(rect=[0,0,0,1])
+plt.subplots_adjust(hspace=0.5,wspace=0.5)
+plt.show()
+```
+***✅ Steps for RFM Segmentation***
+
+**1. Calculate Customer Metrics**
+
+Total Sales per Customer (CustomerSpending)
+
+Purchase Frequency: Number of unique orders per customer
+
+Last Purchase Date for each customer
+
+**2. Calculate Recency**
+
+Find the number of days between today and the last purchase date for each customer
+
+**3. Score Customers**
+
+Use quartiles to assign scores from 1 to 4 for:
+
+Recency (R): More recent = higher score
+
+Frequency (F): More orders = higher score
+
+Monetary (M): Higher spending = higher score
+
+**4. Combine RFM Scores**
+
+Create a total RFM score by adding R, F, and M
+
+**5. Segment Customers**
+
+Based on RFM scores, assign each customer to a segment like:
+
+Champion Customers
+
+Loyal Customer
+
+Potential Loyalist
+
+At Risk
+
+Lost
+
+Others
+ ## ✨ Interpretation:
+ 
+### 🏆 Champion Customers
+- High R, F, and M scores
+- Recent buyers, frequent, and high spenders
+
+### 🤝 Loyal Customers
+- Good frequency and recency
+- Moderate monetary score
+
+### 🌱 Potential Loyalist
+- Recently active but low frequency
+
+### ⚠️ At-Risk Customers
+- Haven’t bought recently but used to buy often
+
+### 💔 Lost Customers
+- Low in all 3 areas
+
+### 📌 Others
+- Do not fit into clear categories
