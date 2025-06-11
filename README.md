@@ -419,45 +419,43 @@ Moderate profit observed in June, July, August, and January in 2017.
 Indicates a seasonal shift in profit patterns.
 # 📈 Categorical Analysis(Shipping Performance, Customers Regional Growth & Product Category Spread) (2014–2017)
 
-### 🚚 Shipping Mode Analysis
 
-‘Standard Class’ is the most frequently used ship mode by the business.
 
-However, it also has the highest average delivery delay, which may impact customer satisfaction.
+### 🧭 Customer Distribution & Growth Across Regions
+![Customer Distribution & Growth Across Regions](Customer%20Region.png)
 
-### 📌 Action Point: Investigate and improve logistics for Standard Class to reduce delays.
+### 📦 Shipping Performance & Product Category Analysis
+![Shipping Performance & Product Category Analysis](Categorical.png)
 
-🗺️ Business Spread Across Regions & Categories
+## ✨ Interpretation:
+```plaintext
 
-🏙️ Region-wise State Count
+## 📦 Ship Mode:  
+- Standard Class used most, but delays high
 
-### Central and East regions have the highest number of states covered.
+## 🌍 Regions:  
+- West has most customers, South the least
 
-Indicates that the business has tried to expand widely across these areas.
+## 🛒 Products:  
+- Product variety visible in sub-categories
 
-### 👥 Customer Count by Region
+## 📈 Growth:  
+- Customer growth in East, Central, West
+```
+Standard Class ship mode was used the most by the business.
 
-Despite fewer states, the West region has the highest customer count over 4 years.
+Unfortunately, it also caused the highest average delivery delays.
 
-South region has the lowest customer engagement.
+Other ship modes caused fewer delays, even though they were used less frequently.
 
-East and Central regions also show good customer numbers, with East slightly leading.
+The Central and East regions have the highest number of states covered by the business.
 
-✅ Positive Trend: There's consistent growth in customers in East, Central, and West regions.
+However, the West region had the highest number of customers over the 4-year period.
 
-### 📦 Product Category Spread
+The South region had the lowest number of customers and may need more attention.
 
-Count of Sub-Categories within each Product Category shows the diversity in offerings.
+There is a positive growth trend in customer count across East, Central, and West regions.
 
-Helps understand how broad the product catalog is under each category.
+The number of sub-categories is different for each product category, showing product variety.
 
-### 🔍 Key Takeaways
-
-⚠️ Standard Class delays should be addressed to maintain service quality.
-
-🧭 South region needs focused marketing or service improvements to boost customer base.
-
-📊 East region is performing well in terms of both state presence and customer base — shows potential for further growth.
-
-🛒 Expanding product diversity under well-performing categories can support business growth.
-
+This analysis helps understand how the business is expanding in regions and how well shipping is performing.
