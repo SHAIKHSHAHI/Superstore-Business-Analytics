@@ -372,6 +372,19 @@ Sales_MonthlyandYearly=Sales_MonthlyandYearly.sort_values
 ![Sales and Profit Trend](Superstore%20Sales%20And%20Profit%20Trend.png)
 
 ## ✨ Interpretation:
+```plaintext
+🔥 High Sales: November 2017
+❄️ Low Sales: February (All years)
+```
+```plaintext
+**Strong Months**: October, November, December  
+*Needs Focus*: February, April
+
+🔴 Low Performing Months
+- February
+- April
+```
+
 ###  📊 Sales Trend Summary
 
 September and December show consistently good sales, especially in 2016 and 2017.
