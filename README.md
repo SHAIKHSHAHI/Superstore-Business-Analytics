@@ -240,11 +240,21 @@ segment_counts = CLV_Final_Data['CLV_Segment'].value_counts()
 ## ✨ Interpretation
  - As we Can See We have both Customers High Value and Low Value.
 - High Value Customers Are More We have gained.
-- There Are also Some of the Customers In High Value have More Value compared to Others giving Priorities to thdm is very much needed as they are helping us to create high revenue and profits.
+- There Are also Some of the Customers In High Value have More Value compared to Others giving Priorities to them is very much needed as they are helping us to create high revenue and profits.
 - Customers having lifespan Between 1 to 4 years Showing Customer Loyalty Toward are business as they are Regular and Long time Customers.
 - As we have total 4 Years Data We Given Lifespan Value Based on their existence in the business from First purchase  Date to Last Purchase Date to know their exact lifespan in the business.
-- 
-## 4.🧑‍🦱 Customer Segment Analysis
+
+-Customers were divided into two segments:
+  - 🔝 **High Value**: Above average CLV
+  - 🔻 **Low Value**: Below average CLV
+
+### 📊 Key Insights:
+- 🔥 High Value Customers are more profitable and loyal over time.
+- 💡 Low Value Customers may need targeted marketing or re-engagement.
+- 🧾 Use this segmentation to prioritize retention strategies.
+
+
+# 4.🧑‍🦱 Customer Segment Analysis
  - simply grouping the data based on Customer segment.
  - finding total number of unique customers from each segment.
  - To See From where we have most customers vs where we have generated more sales.
@@ -356,7 +366,7 @@ plt.savefig('Yearly Trend.png')
 
 plt.show()
 ```
-## 6.Repeated vs Non Repeated
+# 6.Repeated vs Non Repeated
 ### Steps:
 - 1.We first extracted all unique customers using .unique() to avoid counting duplicates. Then, we filtered the dataset to include only those unique customers for accurate analysis of their order behavior.
 - 2.This code identifies whether each customer is a repeated or non-repeated buyer based on their number of unique orders. If a customer has placed more than one order, they are labeled as Repeated, else Non-Repeated.
