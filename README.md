@@ -376,10 +376,9 @@ Sales_MonthlyandYearly=Sales_MonthlyandYearly.sort_values
 🔥 High Sales: November 2017
 ❄️ Low Sales: February (All years)
 ```
-```plaintext
 **Strong Months**: October, November, December  
 *Needs Focus*: February, April
-
+```plaintext
 🔴 Low Performing Months
 - February
 - April
@@ -418,3 +417,47 @@ April: Sales similar to June and July, but not generating enough profit.
 Moderate profit observed in June, July, August, and January in 2017.
 
 Indicates a seasonal shift in profit patterns.
+# 📈 Categorical Analysis(Shipping Performance, Customers Regional Growth & Product Category Spread) (2014–2017)
+
+### 🚚 Shipping Mode Analysis
+
+‘Standard Class’ is the most frequently used ship mode by the business.
+
+However, it also has the highest average delivery delay, which may impact customer satisfaction.
+
+### 📌 Action Point: Investigate and improve logistics for Standard Class to reduce delays.
+
+🗺️ Business Spread Across Regions & Categories
+
+🏙️ Region-wise State Count
+
+### Central and East regions have the highest number of states covered.
+
+Indicates that the business has tried to expand widely across these areas.
+
+### 👥 Customer Count by Region
+
+Despite fewer states, the West region has the highest customer count over 4 years.
+
+South region has the lowest customer engagement.
+
+East and Central regions also show good customer numbers, with East slightly leading.
+
+✅ Positive Trend: There's consistent growth in customers in East, Central, and West regions.
+
+### 📦 Product Category Spread
+
+Count of Sub-Categories within each Product Category shows the diversity in offerings.
+
+Helps understand how broad the product catalog is under each category.
+
+### 🔍 Key Takeaways
+
+⚠️ Standard Class delays should be addressed to maintain service quality.
+
+🧭 South region needs focused marketing or service improvements to boost customer base.
+
+📊 East region is performing well in terms of both state presence and customer base — shows potential for further growth.
+
+🛒 Expanding product diversity under well-performing categories can support business growth.
+
