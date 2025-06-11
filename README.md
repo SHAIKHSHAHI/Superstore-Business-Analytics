@@ -365,10 +365,11 @@ plt.subplots_adjust(hspace=0.5, wspace=0.5)
 plt.savefig('Yearly Trend.png')
 
 plt.show()
-```
-![SalesandOrders](Yearly20%Trend.png)
+``` 
+![SalesandOrders](Yearly%20Trend.png)
 
 ### ✨ Interpretation:
+ 
 - ❌ In **2014**, the business had a good number of customers but **lost** some of them the following year.
 - 🔁 Surprisingly, in **2015**, despite the drop in customers, the number of **orders increased**, indicating stronger engagement or repeat purchases.
 - 📊 From **2016 to 2017**, both **customers and orders showed steady growth**, highlighting a **positive customer trend**.
@@ -555,9 +556,9 @@ plt.tight_layout(rect=[0,0,0,1])
 plt.subplots_adjust(hspace=0.5,wspace=0.5)
 plt.show()
 ```
-***✅ Steps for RFM Segmentation***
+## ***✅ Steps for RFM Segmentation***
 
-**1. Calculate Customer Metrics**
+## **1. Calculate Customer Metrics**
 
 Total Sales per Customer (CustomerSpending)
 
@@ -565,11 +566,11 @@ Purchase Frequency: Number of unique orders per customer
 
 Last Purchase Date for each customer
 
-**2. Calculate Recency**
+### **2. Calculate Recency**
 
 Find the number of days between today and the last purchase date for each customer
 
-**3. Score Customers**
+### **3. Score Customers**
 
 Use quartiles to assign scores from 1 to 4 for:
 
@@ -579,11 +580,11 @@ Frequency (F): More orders = higher score
 
 Monetary (M): Higher spending = higher score
 
-**4. Combine RFM Scores**
+### **4. Combine RFM Scores**
 
 Create a total RFM score by adding R, F, and M
 
-**5. Segment Customers**
+### **5. Segment Customers**
 
 Based on RFM scores, assign each customer to a segment like:
 
