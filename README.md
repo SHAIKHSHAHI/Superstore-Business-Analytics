@@ -477,27 +477,49 @@ Indicates a seasonal shift in profit patterns.
 📈 Growth:  
 - Customer growth in East, Central, West
 ```
-- Standard Class ship mode was used the most by the business.
+### 🚚 Shipping Mode Analysis
 
-- Unfortunately, it also caused the highest average delivery delays.
+‘Standard Class’ is the most frequently used ship mode by the business.
 
-- Other ship modes caused fewer delays, even though they were used less frequently.
+However, it also has the highest average delivery delay, which may impact customer satisfaction.
 
-- The Central and East regions have the highest number of states covered by the business.
+📌 Action Point: Investigate and improve logistics for Standard Class to reduce delays.
 
-- However, the West region had the highest number of customers over the 4-year period.
+### 🗺️ Business Spread Across Regions & Categories
 
-- The South region had the lowest number of customers and may need more attention.
+🏙️ Region-wise State Count
 
-- There is a positive growth trend in customer count across East, Central, and West regions.
+Central and East regions have the highest number of states covered.
 
-- The number of sub-categories is different for each product category, showing product variety.
+Indicates that the business has tried to expand widely across these areas.
 
-- This analysis helps understand how the business is expanding in regions and how well shipping is performing.
+### 👥 Customer Count by Region
 
-import pandas as pd
-import numpy as np
+Despite fewer states, the West region has the highest customer count over 4 years.
 
+South region has the lowest customer engagement.
+
+East and Central regions also show good customer numbers, with East slightly leading.
+
+✅ Positive Trend: There's consistent growth in customers in East, Central, and West regions.
+
+
+### 📦 Product Category Spread
+
+Count of Sub-Categories within each Product Category shows the diversity in offerings.
+
+Helps understand how broad the product catalog is under each category.
+
+🔍 Key Takeaways
+
+⚠️ Standard Class delays should be addressed to maintain service quality.
+
+🧭 South region needs focused marketing or service improvements to boost customer base.
+
+📊 East region is performing well in terms of both state presence and customer base — shows potential for further growth.
+
+🛒 Expanding product diversity under well-performing categories can support business growth.
+ 
 # 9.🎯 RFM-Based Customer Behavior Analysis
 ```python
 # 1. Calculate total spending per customer
