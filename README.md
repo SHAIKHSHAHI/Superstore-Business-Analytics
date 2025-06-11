@@ -368,9 +368,10 @@ Sales_MonthlyandYearly=Data.groupby(['Year','MonthName','Month'])
 Sales_MonthlyandYearly=Sales_MonthlyandYearly.sort_values
 (by=['Year','Month'])
 ```
-! ['SalesandprofitTrend](Superstore20%Sales20%And20%Profit20%Trend.png)
-## ✨ Interpretation:
 
+![Sales and Profit Trend](Superstore%20Sales%20And%20Profit%20Trend.png)
+
+## ✨ Interpretation:
 ###  📊 Sales Trend Summary
 
 September and December show consistently good sales, especially in 2016 and 2017.
