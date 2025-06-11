@@ -361,13 +361,14 @@ Sales_MonthlyandYearly = Sales_MonthlyandYearly.sort_values(by=['Year', 'Month']
 - 4.And The Answer is Yes in 2016 and 2017 we can see that.
 - 5. Even if Customers we loose in 2015 somehow managed to receive orders.
   
-📈 Seasonal Sales & Profit Trend Analysis (2014–2017)
+# 📈 Seasonal Sales & Profit Trend Analysis (2014–2017)
 ```python
 Sales_MonthlyandYearly=Data.groupby(['Year','MonthName','Month'])
 [['Sales','Profit']].sum().reset_index()
 Sales_MonthlyandYearly=Sales_MonthlyandYearly.sort_values
 (by=['Year','Month'])
 ```
+## ✨ Interpretation:
 
 ###  📊 Sales Trend Summary
 
