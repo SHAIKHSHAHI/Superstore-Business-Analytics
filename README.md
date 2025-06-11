@@ -57,9 +57,11 @@ Duplicates=Data.duplicated().sum()
 Data['Order Date']=pd.to_datetime(Data['Order Date'])
 Data['Ship Date']=pd.to_datetime(Data['Ship Date'])
 ```
-##Renaming Columns
+## Renaming Columns
+```python
 Data.rename(columns={'Segment':'Customer Segment',
 'Category':'Product Category'},inplace=True)
+```
 ## Adding Columns
 ```python
 Data['Year']=Data['Order Date'].dt.year
