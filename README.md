@@ -366,6 +366,8 @@ plt.savefig('Yearly Trend.png')
 
 plt.show()
 ```
+![SalesandOrders](Yearly20%Trend.png)
+
 ### ✨ Interpretation:
 - ❌ In **2014**, the business had a good number of customers but **lost** some of them the following year.
 - 🔁 Surprisingly, in **2015**, despite the drop in customers, the number of **orders increased**, indicating stronger engagement or repeat purchases.
@@ -379,6 +381,8 @@ plt.show()
 ```python
 UniqueCustomers=pd.DataFrame(Data['Customer ID'].unique(),columns=['Customer ID']) UniqueCustomersData=Data[Data['Customer ID'].isin(UniqueCustomers['Customer ID'])] CustomersWithOrderCounts=UniqueCustomersData.groupby('Customer ID')['Order ID'].nunique() CustomersWithOrderCounts = CustomersWithOrderCounts.reset_index() CustomersWithOrderCounts['Customer Type'] = np.where( CustomersWithOrderCounts['Order ID'] > 1, 'Repeated', 'Non-Repeated' ) Explain in 2 line
 ```
+![categoricals](Categorical1.png)
+
 ## ✨Interpretation:
 - 📦 **Repeated Customers**: Customers who have placed **more than 1 order**.
 - 🧍 **Non-Repeated Customers**: Customers who have placed **only 1 order**.
