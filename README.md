@@ -448,7 +448,7 @@ Indicates a seasonal shift in profit patterns.
 
 - The South region had the lowest number of customers and may need more attention.
 
--There is a positive growth trend in customer count across East, Central, and West regions.
+- There is a positive growth trend in customer count across East, Central, and West regions.
 
 - The number of sub-categories is different for each product category, showing product variety.
 
