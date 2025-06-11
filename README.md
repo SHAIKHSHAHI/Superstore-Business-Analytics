@@ -1,8 +1,10 @@
 # Superstore-Business-Analytics
 ## Project Overview:
-- This Python-based deep dive project analyzes an eCommerce superstore dataset to uncover valuable business insights. --- It includes advanced analyses such as customer segmentation, product basket analysis, and customer lifetime value (CLV). 
-- The project also features key performance indicators (KPIs) visualization to track sales, profit, and customer metrics effectively.
-- This comprehensive approach helps in making data-driven decisions to boost business performance.
+-  Analyzed a retail dataset with over 7,000 rows and 21 columns covering 4 years of business data.
+- Performed customer segmentation using RFM and CLV techniques to identify high-value and at-risk customers.
+- Explored sales trends by month, region, and segment to highlight peak periods and low-performing areas.
+- Evaluated shipping methods, customer growth by region, and repeat vs non-repeat buying patterns.
+- Created detailed visualizations and extracted actionable business insights to support decision-making.
 
 ### Importing Of All Required Liabraries
 ```python
