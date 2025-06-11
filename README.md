@@ -5,6 +5,26 @@
 - Explored sales trends by month, region, and segment to highlight peak periods and low-performing areas.
 - Evaluated shipping methods, customer growth by region, and repeat vs non-repeat buying patterns.
 - Created detailed visualizations and extracted actionable business insights to support decision-making.
+# Project Summary
+**1. 📅 Yearly Sales & Profit Trend**
+
+**2. 🛍️ Monthly Sales Trends**
+
+**3. 🚚 Ship Mode Analysis**
+
+**4. 📦 Category vs Sub-Category Counts**
+
+**5. 📍 Region-wise Customer or Sales Count**
+
+**6. 💰 Sales vs Profit Ratio**
+
+**7. 🔄 RFM Segmentation Chart**
+
+**8. 📈 Customer Trends Over Time**
+
+**9. 📌 CLV Segmentation**
+
+**10. High vs Low Lifetime Value customer distribution.**
 
 ### Importing Of All Required Liabraries
 ```python
