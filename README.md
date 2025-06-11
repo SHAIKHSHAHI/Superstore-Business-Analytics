@@ -121,7 +121,7 @@ Atlanta         17197.840   6993.6629
 Minneapolis     16870.540   6824.5846
 San Diego       47521.029   6377.1960
 ```
-### ✨ Interpretation:
+## ✨ Interpretation:
 - 1.The first four cities — New York City, Los Angeles, Seattle, and San Francisco — appear in both Top Sales and Top Profit lists, indicating strong alignment between sales revenue and profitability.
 
 - 2.This suggests these cities generate high sales efficiently, converting revenue into profit effectively.
@@ -140,7 +140,7 @@ San Diego       47521.029   6377.1960
 - 5.This indicates efficient operations or higher profit margins in these locations, contributing positively to overall profitability.
 
 
-## 3.1 💰 Customer Lifetime Value (CLV) Analysis
+# 3.1 💰 Customer Lifetime Value (CLV) Analysis
 
 In this step, we calculate the CLV for each customer by combining their average purchase value, purchase frequency, and lifespan. Based on the average CLV, customers are segmented into High Value and Low Value categories.
 
@@ -328,7 +328,7 @@ plt.savefig('Customer_Segment.png')
 - **All segments are performing well** overall.
 - The **Consumer** segment maintained **moderate sales** in **2015 and 2016**.
 
-## 5.📈 Year-wise Customer & Order Analysis
+# 5.📈 Year-wise Customer & Order Analysis
 ```python
 CustomersPerYear=Data.groupby('Year')['Customer ID'].nunique().reset_index()
 CustomersPerYear.columns=['Year','Customer Count']
@@ -366,6 +366,7 @@ plt.savefig('Yearly Trend.png')
 
 plt.show()
 ```
+
 # 6.Repeated vs Non Repeated
 ### Steps:
 - 1.We first extracted all unique customers using .unique() to avoid counting duplicates. Then, we filtered the dataset to include only those unique customers for accurate analysis of their order behavior.
@@ -373,7 +374,14 @@ plt.show()
 ```python
 UniqueCustomers=pd.DataFrame(Data['Customer ID'].unique(),columns=['Customer ID']) UniqueCustomersData=Data[Data['Customer ID'].isin(UniqueCustomers['Customer ID'])] CustomersWithOrderCounts=UniqueCustomersData.groupby('Customer ID')['Order ID'].nunique() CustomersWithOrderCounts = CustomersWithOrderCounts.reset_index() CustomersWithOrderCounts['Customer Type'] = np.where( CustomersWithOrderCounts['Order ID'] > 1, 'Repeated', 'Non-Repeated' ) Explain in 2 line
 ```
-# 📈 7.Superstore Yearly Sales And Profit Trend.
+## ✨Interpretation:
+- 1.we had a Good number of Customers in the initial year then declined in 2015 but later on has better change, consumers getting added later and have wonderful consumer growth in the later years.
+- 2.We compared Consumer Trend vs Orders Trend to see Co-relation between Consumers and Orders.
+- 3.Helps in answering questions like ,do increase in customers leads to increase in Orders?
+- 4.And The Answer is Yes in 2016 and 2017 we can see that.
+- 5. Even if Customers we loose in 2015 somehow managed to receive orders.
+  
+# 📈 7. Yearly Sales And Profit Trend.
 
 - 1.We aggregated total Sales and Profit by Year and Month.
 - 2.Then sorted it to understand sales performance trends over time for time series or line chart visualization.
@@ -383,13 +391,9 @@ Sales_MonthlyandYearly = Data.groupby(['Year', 'MonthName', 'Month'])[['Sales', 
 Sales_MonthlyandYearly = Sales_MonthlyandYearly.sort_values(by=['Year', 'Month'])
 ```
 ![Yearly Trend](Yearly%20Trend.png)
-### ✨Interpretation:
-- 1.we had a Good number of Customers in the initial year then declined in 2015 but later on has better change, consumers getting added later and have wonderful consumer growth in the later years.
-- 2.We compared Consumer Trend vs Orders Trend to see Co-relation between Consumers and Orders.
-- 3.Helps in answering questions like ,do increase in customers leads to increase in Orders?
-- 4.And The Answer is Yes in 2016 and 2017 we can see that.
-- 5. Even if Customers we loose in 2015 somehow managed to receive orders.
-  
+## ✨Interpretation:
+
+
 # 8.📈 Seasonal Sales & Profit Trend Analysis (2014–2017)
 ```python
 Sales_MonthlyandYearly=Data.groupby(['Year','MonthName','Month'])
