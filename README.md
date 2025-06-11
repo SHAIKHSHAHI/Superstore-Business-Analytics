@@ -639,3 +639,39 @@ Others**
 
 ### 📌 Others
 - Do not fit into clear categories
+
+# ✅ Recommendations
+- Monitor sales vs profit ratio regularly—don’t just push for higher sales.
+- Conduct marketing surveys in the South region to understand low performance and address issues.
+- Optimize or reconsider the Standard Class shipping method to reduce average delivery delays.
+- Offer incentives for customers to choose faster and more reliable shipping modes.
+- Offer targeted discounts to "At Risk" or "Lost" RFM segments.
+- Re-engage non-repeating customers with personalized offers or recommendations.
+- 
+# ✅ Limitations
+**❌ No Customer Feedback or Ratings**
+The dataset does not include customer reviews or satisfaction scores, so we cannot determine the exact reasons why some customers stopped purchasing.
+
+**📉 No Marketing or Promotion Data**
+There is no information on advertisements, campaigns, or promotions, which limits the ability to assess their impact on sales and customer behavior.
+
+**⏳ Unclear Reasons for Delivery Delays**
+Although shipping delays are measured, there is no data on external factors (like weather, holidays, or supplier issues), making it difficult to identify exact causes.
+
+📌 Conclusion
+The business showed strong growth in recent years, especially in festive months.
+
+West region had the highest customer base; South region needs more focus.
+
+'Standard Class' shipping caused the most delivery delays.
+
+RFM and CLV analysis helped identify loyal and at-risk customers.
+
+These insights can guide better marketing, logistics, and customer strategies.
+
+## 📬 Contact Me
+
+If you'd like to connect or have any questions, feel free to reach out:
+
+- 📧 Email: shaikhshahi326@gmail.com  
+- 💼 LinkedIn: (https://www.linkedin.com/in/shahista24) 
