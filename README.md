@@ -563,18 +563,23 @@ Helps understand how broad the product catalog is under each category.
 # 9.🎯 RFM-Based Customer Behavior Analysis
 ```python
 # 1. Calculate total spending per customer
-CustomerSpending = UniqueCustomersDetails.groupby('Customer ID')['Sales'].sum().reset_index(name='CustomerSpending')
+CustomerSpending = UniqueCustomersDetails.groupby('Customer ID')['Sales']
+.sum().reset_index(name='CustomerSpending')
 
 # 2. Calculate purchase frequency per customer
-CustomerOrderFrequency = UniqueCustomersDetails.groupby('Customer ID')['Order ID'].nunique().reset_index(name='PurchaseFrequency')
+CustomerOrderFrequency = UniqueCustomersDetails.
+groupby('Customer ID')['Order ID'].nunique().reset_index(name='PurchaseFrequency')
 
 # 3. Get last purchase date
-CustomerLastPurchase = UniqueCustomersDetails.groupby('Customer ID')['Order Date'].max().reset_index(name='Last Purchase')
+CustomerLastPurchase = UniqueCustomersDetails.
+groupby('Customer ID')['Order Date'].max().reset_index(name='Last Purchase')
 Current_Date = pd.to_datetime('today')
 
 # 4. Merge all metrics into one DataFrame
-Merge = pd.merge(CustomerSpending, CustomerOrderFrequency, on='Customer ID')
-RFM_Customers = pd.merge(Merge, CustomerLastPurchase, on='Customer ID')
+Merge = pd.merge(CustomerSpending,
+ CustomerOrderFrequency, on='Customer ID')
+RFM_Customers = pd.merge(
+Merge, CustomerLastPurchase,on='Customer ID')
 
 # 5. Calculate recency in days
 RFM_Customers['Recency'] = (Current_Date - RFM_Customers['Last Purchase']).dt.days
