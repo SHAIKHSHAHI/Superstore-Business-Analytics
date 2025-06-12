@@ -417,7 +417,7 @@ UniqueCustomersData=Data[Data['Customer ID'].isin(UniqueCustomers['Customer ID']
 CustomersWithOrderCounts=UniqueCustomersData.groupby('Customer ID')['Order ID'].nunique()
 CustomersWithOrderCounts = CustomersWithOrderCounts.reset_index()
  CustomersWithOrderCounts['Customer Type'] = np.where(
- CustomersWithOrderCounts['Order ID'] > 1, 'Repeated', 'Non-Repeated' ) Explain in 2 line
+ CustomersWithOrderCounts['Order ID'] > 1, 'Repeated', 'Non-Repeated' ) 
 ```
 ![categoricals](Categorical1.png)
 
