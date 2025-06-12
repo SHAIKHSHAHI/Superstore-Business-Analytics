@@ -357,11 +357,15 @@ plt.savefig('Customer_Segment.png')
 - The **Consumer** segment maintained **moderate sales** in **2015 and 2016**.
 
 # 5.  📈 Customer Trend & Order Insights (2014–2017)
-```python#
-CustomersPerYear=Data.groupby('Year')['Customer ID'].nunique().reset_index()
-CustomersPerYear.columns=['Year','Customer Count']
+```python
+CustomersPerYear=Data.groupby('Year')
+['Customer ID'].nunique().reset_index()
+CustomersPerYear.columns=
+['Year','Customer Count']
 
-OrdersPerYear=Data.groupby('Year')['Order ID'].nunique().sort_values(ascending=False)
+OrdersPerYear=Data.groupby('Year')
+['Order ID'].nunique().
+sort_values(ascending=False)
 PerYearOrders=OrdersPerYear.reset_index()
 PerYearOrders.columns=['Year','Total Orders']
 ```
