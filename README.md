@@ -114,11 +114,13 @@ plt.show()
 Returns the top 10 cities that earned the highest profit.
 ```python
 Top10RevenueCities=Data.groupby('City')
-[['Sales','Profit']].sum().sort_values(by='Sales',ascending=False)
+[['Sales','Profit']].sum()
+.sort_values(by='Sales',ascending=False)
 .head(10)
 
 Top10ProfitCities=Data.groupby('City')
-[['Sales','Profit']].sum().sort_values(by='Profit',ascending=False)
+[['Sales','Profit']].sum().
+sort_values(by='Profit',ascending=False)
 .head(10)
 ```
 ```plaintext
