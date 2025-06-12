@@ -412,7 +412,12 @@ plt.show()
 - 1.We first extracted all unique customers using .unique() to avoid counting duplicates. Then, we filtered the dataset to include only those unique customers for accurate analysis of their order behavior.
 - 2.This code identifies whether each customer is a repeated or non-repeated buyer based on their number of unique orders. If a customer has placed more than one order, they are labeled as Repeated, else Non-Repeated.
 ```python
-UniqueCustomers=pd.DataFrame(Data['Customer ID'].unique(),columns=['Customer ID']) UniqueCustomersData=Data[Data['Customer ID'].isin(UniqueCustomers['Customer ID'])] CustomersWithOrderCounts=UniqueCustomersData.groupby('Customer ID')['Order ID'].nunique() CustomersWithOrderCounts = CustomersWithOrderCounts.reset_index() CustomersWithOrderCounts['Customer Type'] = np.where( CustomersWithOrderCounts['Order ID'] > 1, 'Repeated', 'Non-Repeated' ) Explain in 2 line
+UniqueCustomers=pd.DataFrame(Data['Customer ID'].unique(),columns=['Customer ID'])
+UniqueCustomersData=Data[Data['Customer ID'].isin(UniqueCustomers['Customer ID'])]
+CustomersWithOrderCounts=UniqueCustomersData.groupby('Customer ID')['Order ID'].nunique()
+CustomersWithOrderCounts = CustomersWithOrderCounts.reset_index()
+ CustomersWithOrderCounts['Customer Type'] = np.where(
+ CustomersWithOrderCounts['Order ID'] > 1, 'Repeated', 'Non-Repeated' ) Explain in 2 line
 ```
 ![categoricals](Categorical1.png)
 
