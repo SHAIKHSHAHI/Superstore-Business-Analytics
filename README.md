@@ -1,3 +1,4 @@
+![Ecommerce](ECommerce(0).jpg)
 # Superstore-Business-Analytics
 ## Project Overview:
 -  Analyzed a retail dataset with over 7,000 rows and 21 columns covering 4 years of business data.
